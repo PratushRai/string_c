@@ -10,8 +10,14 @@ typedef struct{
 }string;
 
 
-void init_string(string *v);
+void init_string(string *s);
 
-void add(string *v, char data);
+void add_char(string *s, char data);
 
-void free_string(string *v);
+void free_string(string *s);
+
+void print_string(string s);
+
+int len_str(string *s);
+
+void add_string(string *s, char *data);
