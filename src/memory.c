@@ -1,3 +1,7 @@
+/*
+All memory related stuff
+*/
+
 #include<stdlib.h>
 #include"memory.h"
 
@@ -9,8 +13,6 @@ char* allocate(char* pointer, int old_size, int new_size){
     return nullptr;
   }
   char *result = realloc(pointer, new_size);
-  if(result){
-    return result;
-  }
-  return nullptr;
+  if(result == nullptr) exit(1);
+  return result;
 }
