@@ -18,6 +18,6 @@ void free_string(string *s);
 
 void print_string(string s);
 
-int len_str(string *s);
+int len_str(string s);
 
 void add_string(string *s, char *data);

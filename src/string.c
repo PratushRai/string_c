@@ -1,7 +1,8 @@
-#include<stdlib.h>
-#include<stdint.h>
+#include <stdlib.h>
 #include "string.h"
 #include "memory.h"
+#include <string.h>
+#include <stdio.h>
 
 void init_string(string *s){
   s->arr = NULL;
@@ -29,12 +30,14 @@ void add_char(string *s, char data){
 
 void add_string(string *s, char *data){
   int old_capacity = s->capacity;
-  if(old_capacity < s->count+1){
+  if(old_capacity < s->count+1 || (s->capacity - s->count) > strlen(data)){
     s->capacity = grow_capacity(old_capacity);
     s->arr = allocate(s->arr, sizeof(char) * old_capacity, sizeof(char) * s->capacity); 
   }
 
-  
+  for(int i = 0; i < strlen(data); i++){
+    add_char(s, data[i]);
+  }
   
 }
 
