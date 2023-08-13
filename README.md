@@ -1,2 +1,2 @@
 ## String C
-### A dynamic string library for c
+### A dynamic UTF-8 compatible string library for c

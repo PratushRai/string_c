@@ -41,6 +41,10 @@ void add_string(string *s, char *data){
   
 }
 
+void concat(string *s1, string *s2){
+
+}
+
 void free_string(string *s){
   allocate(s->arr, sizeof(char) * s->count, 0);
 }
