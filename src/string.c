@@ -7,11 +7,11 @@
 void init_string(string *s){
   s->arr = NULL;
   s->capacity = 0;
-  s->count = 0;
+  s->len = 0;
 }
 
 int len_str(string s){
-  return s.count; 
+  return s.len; 
 }
 
 int grow_capacity(int old_capacity){
@@ -20,17 +20,17 @@ int grow_capacity(int old_capacity){
 
 void add_char(string *s, char data){
   int old_capacity = s->capacity;
-  if(old_capacity < s->count + 1){
+  if(old_capacity < s->len + 1){
     s->capacity = grow_capacity(old_capacity);
     s->arr = allocate(s->arr, sizeof(char) * old_capacity, sizeof(char) * s->capacity);
   }
-  s->arr[s->count] = data;
-  s->count++;
+  s->arr[s->len] = data;
+  s->len++;
 }
 
 void add_string(string *s, char *data){
   int old_capacity = s->capacity;
-  if(old_capacity < s->count+1 || (s->capacity - s->count) > strlen(data)){
+  if(old_capacity < s->len+1){
     s->capacity = grow_capacity(old_capacity);
     s->arr = allocate(s->arr, sizeof(char) * old_capacity, sizeof(char) * s->capacity); 
   }
@@ -42,13 +42,13 @@ void add_string(string *s, char *data){
 }
 
 void concat(string *s1, string *s2){
-
+  add_string(s1, s2->arr);
 }
 
 void free_string(string *s){
-  allocate(s->arr, sizeof(char) * s->count, 0);
+  allocate(s->arr, sizeof(char) * s->len, 0);
 }
 
 void print_string(string s){
-  printf("{ count: %d, capacity: %d, content: %s } \n", s.count, s.capacity, s.arr);
+  printf("{ len: %d, capacity: %d, content: %s } \n", s.len, s.capacity, s.arr);
 }
