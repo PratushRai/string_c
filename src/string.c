@@ -14,6 +14,14 @@ int len_str(string s){
   return s.len; 
 }
 
+int capacity_str(string s){
+  return s.capacity;
+}
+
+char* str(string s){
+  return s.arr;
+}
+
 int grow_capacity(int old_capacity){
   return ((old_capacity < 8) ? 8 : (old_capacity * 2));
 }
