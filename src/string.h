@@ -35,6 +35,8 @@ void add_string(string *s, char *data);
 
 void concat(string *s1, string *s2);
 
+bool cmp_string(string s1, string s2);
+
 bool is_ascii(char c);
 
 #endif

@@ -66,6 +66,20 @@ void add_string(string *s, char *data){
   
 }
 
+bool cmp_string(string s1, string s2){
+  if(s1.len != s2.len){
+    return false;
+  }
+  else{
+    for(int i = 0; i < s1.len; i++){
+      if(s1.arr[i] != s2.arr[i]){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 void concat(string *s1, string *s2){
   add_string(s1, s2->arr);
 }
