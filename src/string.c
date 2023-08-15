@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
+
 void init_string(string *s){
   s->arr = NULL;
   s->capacity = 0;
@@ -53,6 +54,16 @@ void add_char(string *s, char data){
   s->len++;
 }
 
+void clear(string *s){
+  if(is_empty(*s)){
+    perror("String is empty");
+  }
+  else{
+    s->arr = NULL;
+    s->len = 0; 
+  }
+}
+
 void add_string(string *s, char *data){
   // int old_capacity = s->capacity;
   // if(old_capacity < s->len+1){
@@ -93,7 +104,7 @@ void print_string(string s){
 }
 
 bool is_empty(string s){
-  return ((s.arr == NULL) ? true : false);
+  return ((s.arr == NULL && s.len == 0) ? true : false);
 }
 
 bool is_ascii(char c){
