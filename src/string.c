@@ -32,9 +32,11 @@ char* char_at(string s, int index){
   else{
     char* str;
     int i = index;
-    while(!is_ascii(s.arr[index])){
+    printf("Not ascii");
+    while(is_ascii(s.arr[index])){
       str[i] = s.arr[index];
       i++;
+      printf("%d", i);
     }
     return str;
   }
@@ -52,6 +54,18 @@ void add_char(string *s, char data){
   }
   s->arr[s->len] = data;
   s->len++;
+}
+
+int find(string s, char c){
+  for(int i = 0; i < s.len; i++){
+    if(s.arr[i] == c){
+      return i;
+    }
+    else{
+      continue;
+    }
+  }
+  return -1;
 }
 
 void clear(string *s){

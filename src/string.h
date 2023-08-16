@@ -31,6 +31,8 @@ char* str(string s);
 
 bool is_empty(string s);
 
+int find(string s, char c);
+
 void add_string(string *s, char *data);
 
 void concat(string *s1, string *s2);
